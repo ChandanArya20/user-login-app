@@ -8,9 +8,9 @@ const UserContextProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState(null);
 
 	//to make user logged in
-	const loginUser = (data, next) => {
-		localStorage.setItem("userData", JSON.stringify(data));
-		setCurrentUser(data.user);
+	const loginUser = (userDetails, next) => {
+		localStorage.setItem("userData", JSON.stringify(userDetails));
+		setCurrentUser(userDetails);
 		next();
 	};
 
@@ -20,11 +20,7 @@ const UserContextProvider = ({ children }) => {
 
 		let data = localStorage.getItem("userData");
 
-		if (data != null){
-			return true;
-		}else{
-			return false;
-		}
+		return data!=null;
 	};
 
 
@@ -43,7 +39,7 @@ const UserContextProvider = ({ children }) => {
 		if (isUserLoggedin()) {
 			const userData = localStorage.getItem("userData");
 			const parsedData = JSON.parse(userData);
-			return parsedData.user;
+			return parsedData;
 		} else {
 			return null;
 		}
