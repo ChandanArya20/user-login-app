@@ -16,6 +16,22 @@ h2 {
 	text-align: center;
 }
 
+.user-status-info{
+	position: relative;
+	z-index: 20;
+}
+
+.user-status-info h2{
+	margin-top: 0;
+}
+
+.user-status-info h2 span{
+	color: blue;
+	cursor: pointer;
+	font-size: medium;
+	margin-left: 10vw;
+}
+
 p {
 	font-size: 14px;
 	font-weight: 100;
@@ -47,6 +63,7 @@ button {
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 	cursor: pointer;
+	position: relative;
 }
 
 button:active {
@@ -243,10 +260,3 @@ footer a {
     text-decoration: none;
 }
 
-.user-status-info{
-	position: relative;
-	z-index: 20;
-}
-.user-status-info h2{
-	margin-top: 0;
-}

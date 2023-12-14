@@ -7,7 +7,7 @@ const RegistrationSuccessPage=()=>{
     const navigate=useNavigate();
 
     return (
-        <div class="success-message">
+        <div className="success-message">
             <h2><FaCircleCheck /></h2>
             <p>SUCCESS</p>
             <p>Congratulations, your account has been successfully created.</p>
