@@ -1,4 +1,4 @@
-body {
+.user-login-page-container {
 	background: #f6f5f7;
 	display: flex;
 	justify-content: center;
@@ -7,32 +7,32 @@ body {
 	height: 100vh;
 }
 
-h1 {
+.user-login-page-container h1 {
 	font-weight: bold;
-	margin: 0;
+	
 }
 
-h2 {
+.user-login-page-container h2 {
 	text-align: center;
 }
 
-.user-status-info{
+.user-login-page-container .user-status-info{
 	position: relative;
 	z-index: 20;
 }
 
-.user-status-info h2{
+.user-login-page-container .user-status-info h2{
 	margin-top: 0;
 }
 
-.user-status-info h2 span{
+.user-login-page-container .user-status-info h2 span{
 	color: blue;
 	cursor: pointer;
 	font-size: medium;
 	margin-left: 10vw;
 }
 
-p {
+.user-login-page-container p {
 	font-size: 14px;
 	font-weight: 100;
 	line-height: 20px;
@@ -40,18 +40,20 @@ p {
 	margin: 20px 0 30px;
 }
 
-span {
+.user-login-page-container span {
 	font-size: 12px;
 }
 
-a {
+.user-login-page-container .forget-password {
 	color: #333;
 	font-size: 14px;
 	text-decoration: none;
-	margin: 15px 0;
+	margin: 15px;
+	margin-top: 0;
+	cursor: pointer;
 }
 
-button {
+.user-login-page-container button {
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
@@ -66,20 +68,20 @@ button {
 	position: relative;
 }
 
-button:active {
+.user-login-page-container button:active {
 	transform: scale(0.95);
 }
 
-button:focus {
+.user-login-page-container button:focus {
 	outline: none;
 }
 
-button.ghost {
+.user-login-page-container button.ghost {
 	background-color: transparent;
 	border-color: #FFFFFF;
 }
 
-form {
+.user-login-page-container form {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -90,7 +92,7 @@ form {
 	text-align: center;
 }
 
-input {
+.user-login-page-container input {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
@@ -98,7 +100,7 @@ input {
 	width: 100%;
 }
 
-.container {
+.user-login-page-container .container {
 	background-color: #fff;
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
@@ -110,31 +112,31 @@ input {
 	min-height: 480px;
 }
 
-.form-container {
+.user-login-page-container .form-container {
 	position: absolute;
 	top: 0;
 	height: 100%;
 	transition: all 0.6s ease-in-out;
 }
 
-.sign-in-container {
+.user-login-page-container .sign-in-container {
 	left: 0;
 	width: 50%;
 	z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.user-login-page-container .container.right-panel-active .sign-in-container {
 	transform: translateX(100%);
 }
 
-.sign-up-container {
+.user-login-page-container .sign-up-container {
 	left: 0;
 	width: 50%;
 	opacity: 0;
 	z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
+.user-login-page-container .container.right-panel-active .sign-up-container {
 	transform: translateX(100%);
 	opacity: 1;
 	z-index: 5;
@@ -153,7 +155,7 @@ input {
 	}
 }
 
-.overlay-container {
+.user-login-page-container .overlay-container {
 	position: absolute;
 	top: 0;
 	left: 50%;
@@ -164,11 +166,11 @@ input {
 	z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
+.user-login-page-container .container.right-panel-active .overlay-container{
 	transform: translateX(-100%);
 }
 
-.overlay {
+.user-login-page-container .overlay {
 	background: #FF416C;
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
 	background: linear-gradient(to right, #FF4B2B, #FF416C);
@@ -184,11 +186,11 @@ input {
 	transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
+.user-login-page-container .container.right-panel-active .overlay {
   	transform: translateX(50%);
 }
 
-.overlay-panel {
+.user-login-page-container .overlay-panel {
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -203,28 +205,28 @@ input {
 	transition: transform 0.6s ease-in-out;
 }
 
-.overlay-left {
+.user-login-page-container .overlay-left {
 	transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.user-login-page-container .container.right-panel-active .overlay-left {
 	transform: translateX(0);
 }
 
-.overlay-right {
+.user-login-page-container .overlay-right {
 	right: 0;
 	transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
+.user-login-page-container .container.right-panel-active .overlay-right {
 	transform: translateX(20%);
 }
 
-.social-container {
+.user-login-page-container .social-container {
 	margin: 20px 0;
 }
 
-.social-container a {
+.user-login-page-container .social-container a {
 	border: 1px solid #DDDDDD;
 	border-radius: 50%;
 	display: inline-flex;
@@ -235,7 +237,7 @@ input {
 	width: 40px;
 }
 
-footer {
+.user-login-page-container footer {
     background-color: #222;
     color: #fff;
     font-size: 14px;
@@ -247,15 +249,15 @@ footer {
     z-index: 999;
 }
 
-footer p {
+.user-login-page-container footer p {
     margin: 10px 0;
 }
 
-footer i {
+.user-login-page-container footer i {
     color: red;
 }
 
-footer a {
+.user-login-page-container footer a {
     color: #3c97bf;
     text-decoration: none;
 }

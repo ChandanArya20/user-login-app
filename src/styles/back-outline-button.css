@@ -1,0 +1,13 @@
+#back-outline-button{
+    padding: 8px 14px;
+    background-color: #fff;
+    border: 1px solid red;
+    color: red;
+    transition: 0.3s;
+
+}
+#back-outline-button:hover{
+    border: 1px solid rgb(229, 3, 3);
+    color: rgb(229, 3, 3);
+
+}

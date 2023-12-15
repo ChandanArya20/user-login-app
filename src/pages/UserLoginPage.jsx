@@ -4,6 +4,7 @@ import axios from 'axios';
 import { UserContext } from '../context/UserContex';
 import { useNavigate } from 'react-router-dom';
 import { ClipLoader } from 'react-spinners';
+import { toast } from 'react-toastify';
 
 const UserLoginPage = () => {
     // State to toggle between sign-up and login panels
@@ -14,6 +15,7 @@ const UserLoginPage = () => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     // User context for managing user authentication
     const { loginUser, isUserLoggedin, logoutUser } = useContext(UserContext);
@@ -47,26 +49,33 @@ const UserLoginPage = () => {
                 loginUser(response.data, () => { });
             }
         } catch (error) {
+
             console.log(error);
+
             if (axios.isAxiosError(error)) {
                 // Handle specific Axios error cases if needed
-                if (error.response.status === 401) {
-                    console.log("Incorrect password");
+                if (error.response.status === 401){            
+                    toast.error("Incorrect password");
                 } else if (error.response.status === 404) {
-                    console.log("Account not found");
+                    toast.error("Account not found");
                 } else {
-                    console.log("Something wrong at the server side");
+                    toast.error("Something wrong at the server side");
                 }
             }
-        } finally {
+        } finally{
             setLoading(false);
         }
     }
 
     // Handle sign-up form submission
     const handleSignUp = async (e) => {
-        setLoading(true);
         e.preventDefault();
+        
+        if(!password!==confirmPassword){
+            toast.error("Passwords do not match");
+            return;
+        }
+        setLoading(true);
         try {
             const response = await axios.post(`${process.env.REACT_APP_BASE_API_URL}/user/register`, {
                 name: name,
@@ -83,9 +92,9 @@ const UserLoginPage = () => {
             if (axios.isAxiosError(error)) {
                 // Handle specific Axios error cases if needed
                 if (error.response.status === 409) {
-                    console.log("Account already registered with another account");
+                    toast.error("Account already registered with another account");
                 } else {
-                    console.log("Something wrong at the server side");
+                    toast.error("Something wrong at the server side");
                 }
             }
         } finally {
@@ -94,7 +103,7 @@ const UserLoginPage = () => {
     }
 
     return (
-        <div className="main-page-container">
+        <div className="user-login-page-container">
             {/* Display user status if logged in */}
             {isUserLoggedin() && <div className='user-status-info'><h2>You're Logged In 
                 <span onClick={() => logoutUser(() => { })}>Log out</span></h2></div>}
@@ -108,7 +117,8 @@ const UserLoginPage = () => {
                         <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
                         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                         <input type='tel' placeholder="phone (Optional)" value={phone} onChange={(e) => setPhone(e.target.value)}/>
-                        <input type="password" placeholder="Create Password" password={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <input type="password" placeholder="Create Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
                         <button onClick={(e) => handleSignUp(e)}>
                             {loading ? 'Waiting...' : 'Sign Up'}
                             {loading && 
@@ -126,11 +136,11 @@ const UserLoginPage = () => {
                         <h1>Login</h1>
                         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type="password" placeholder="Password" password={password} onChange={(e) => setPassword(e.target.value)} />
-                        <a href="#">Forgot your password?</a>
+                        <p className='forget-password' onClick={()=>navigate("/forget-password")}>Forgot your password?</p>
                         <button onClick={(e) => handleLogin(e)} disabled={loading}>
                             {loading ? 'Logging...' : 'Login'}
                             {loading && 
-                                <div className="loading-overlay-btn" disabled={loading}>
+                                <div className="loading-overlay-btn">
                                     <ClipLoader color="#620c88" />
                                 </div>
                             }
