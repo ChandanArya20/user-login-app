@@ -3,6 +3,8 @@ import './App.css';
 import UserLoginPage from './pages/UserLoginPage';
 import RegistrationSuccessPage from './pages/RegistrationSuccessPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import OTPVerificationPage from './pages/OTPVerificationPage';
+import CreateNewPasswordPage from './pages/CreateNewPasswordPage';
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
         <Route path='/' element={<UserLoginPage/>} />
         <Route path='registration-success' element={<RegistrationSuccessPage/>} />
         <Route path='forget-password' element={<ForgotPasswordPage/>} />
+        <Route path='verify-otp' element={<OTPVerificationPage/>} />
+        <Route path='create-new-password' element={<CreateNewPasswordPage/>} />
       </Routes>
     </BrowserRouter>
   );

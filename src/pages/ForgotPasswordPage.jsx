@@ -28,8 +28,7 @@ const ForgotPasswordPage = () => {
             const response = await Promise.race([apiCall, timeoutPromise]);
              
             if (response.ok || response.status === 'timeout') {
-                console.log("Successfully sent otp");
-                // navigate("/otpVerification", {state:email});
+                navigate("/verify-otp", {state:email});
             } else if (response.status === 404) {
                 console.log(response);
                 toast.error("Account not found for this email");
@@ -52,18 +51,18 @@ const ForgotPasswordPage = () => {
                 <h2>Forgot Password?</h2>
                 <form>
                     <input type="email" placeholder="Email" required onChange={(e)=>setEmail(e.target.value)}/>
-                    <button onClick={(e)=>sendOTP(e)}>
+                    <button onClick={(e)=>sendOTP(e)} disabled={loading}>
                         {loading ? 'Sending OTP...' : 'Reset Password'}
                         {loading && 
-                            <div className="loading-overlay-btn" disabled={loading}>
+                            <div className="loading-overlay-btn" >
                                 <ClipLoader color="#620c88" />
                             </div>
                         }
                         </button>
-                    <div className="button-container">
-                        <BackOutlineButton name="Back"/>
-                    </div>
                 </form>
+                <div className="button-container">
+                    <BackOutlineButton name="Back" handlerFunction={()=>navigate(-1)}/>
+                </div>
             </div>
         </div>
     );

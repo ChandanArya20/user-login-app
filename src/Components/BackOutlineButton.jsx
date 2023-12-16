@@ -1,12 +1,16 @@
-import { useNavigate } from 'react-router-dom';
 import '../styles/back-outline-button.css'
 
-const BackOutlineButton=({name})=>{
+const OutlineButton=({name,color='red',handlerFunction})=>{
     
-    const navigate=useNavigate();
     return(
-        <button id="back-outline-button" onClick={()=>navigate(-1)}>{name}</button>
+        <button 
+            id="outline-button" 
+            style={{color:color,border:`1px solid ${color}`}}
+            onClick={()=>handlerFunction()}
+        >
+            {name}
+        </button>
     )
 }
 
-export default BackOutlineButton;
+export default OutlineButton;

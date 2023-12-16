@@ -45,9 +45,10 @@ const UserLoginPage = () => {
                 email: email,
                 password: password
             });
-            if (response.status === 200) {
-                loginUser(response.data, () => { });
-            }
+           
+            loginUser(response.data, () => { });
+            toast.success("You've successfully logged...");
+            
         } catch (error) {
 
             console.log(error);
