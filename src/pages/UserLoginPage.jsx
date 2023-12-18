@@ -17,6 +17,7 @@ const UserLoginPage = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+
     // User context for managing user authentication
     const { loginUser, isUserLoggedin, logoutUser } = useContext(UserContext);
 
@@ -41,10 +42,13 @@ const UserLoginPage = () => {
         setLoading(true);
         e.preventDefault();
         try {
-            const response = await axios.post(`${process.env.REACT_APP_BASE_API_URL}/user/login`, {
+            const response = await axios.post(`${process.env.REACT_APP_BASE_API_URL}/user/login`, 
+            {
                 email: email,
                 password: password
-            });
+            },
+            { withCredentials: true }
+            );
            
             loginUser(response.data, () => { });
             toast.success("You've successfully logged...");
@@ -137,7 +141,7 @@ const UserLoginPage = () => {
                         <h1>Login</h1>
                         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <input type="password" placeholder="Password" password={password} onChange={(e) => setPassword(e.target.value)} />
-                        <p className='forget-password' onClick={()=>navigate("/forget-password")}>Forgot your password?</p>
+                        <p className='forget-password' onClick={()=>navigate("/forget-password" ,{state:email})}>Forgot your password?</p>
                         <button onClick={(e) => handleLogin(e)} disabled={loading}>
                             {loading ? 'Logging...' : 'Login'}
                             {loading && 
