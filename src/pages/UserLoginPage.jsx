@@ -39,20 +39,14 @@ const UserLoginPage = () => {
 
     // Handle login form submission
     const handleLogin = async (e) => {
-        setLoading(true);
+
         e.preventDefault();
+        setLoading(true);
+        
         try {
-            const response = await axios.post(`${process.env.REACT_APP_BASE_API_URL}/user/login`, 
-            {
-                email: email,
-                password: password
-            },
-            { withCredentials: true }
-            );
-           
-            loginUser(response.data, () => { });
-            toast.success("You've successfully logged...");
-            
+            await loginUser(email,password,()=>{});
+            toast.success("Loggin successfull...")
+
         } catch (error) {
 
             console.log(error);
@@ -67,9 +61,9 @@ const UserLoginPage = () => {
                     toast.error("Something wrong at the server side");
                 }
             }
-        } finally{
+		} finally{
             setLoading(false);
-        }
+        }  
     }
 
     // Handle sign-up form submission
@@ -82,16 +76,7 @@ const UserLoginPage = () => {
         }
         setLoading(true);
         try {
-            const response = await axios.post(`${process.env.REACT_APP_BASE_API_URL}/user/register`, {
-                name: name,
-                email: email,
-                phone: phone,
-                password: password
-            });
-            if (response.status === 200) {
-                console.log(response.data)
-                navigate("/registration-success");
-            }
+            await logoutUser(()=>{})
         } catch (error) {
             console.log(error);
             if (axios.isAxiosError(error)) {

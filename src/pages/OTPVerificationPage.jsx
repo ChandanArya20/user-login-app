@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/forget-password.css';
-import BackOutlineButton from '../Components/BackOutlineButton';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ClipLoader } from 'react-spinners';
@@ -76,11 +75,6 @@ const OTPVerificationPage = () => {
                         }
                     </button>
                 </form>
-
-                {/* Container for the "Back" button */}
-                <div className="button-container">
-                    <BackOutlineButton name="Back" handlerFunction={() => navigate(-1)} />
-                </div>
             </div>
         </div>
     );
