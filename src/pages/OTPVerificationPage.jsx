@@ -64,16 +64,17 @@ const OTPVerificationPage = () => {
                 <form>
                     {/* Input field for OTP */}
                     <input type="text" placeholder="Enter OTP" onChange={(e) => setOTP(e.target.value)} />
-
-                    {/* Button to trigger OTP verification, with loading spinner */}
-                    <button onClick={(e) => verifyOTP(e)} disabled={loading}>
-                        {loading ? 'Verifying...' : 'Verify OTP'}
-                        {loading &&
-                            <div className="loading-overlay-btn" >
-                                <ClipLoader color="#620c88" />
-                            </div>
-                        }
-                    </button>
+                    <div className="button-container">
+                        {/* Button to trigger OTP verification, with loading spinner */}
+                        <button onClick={(e) => verifyOTP(e)} disabled={loading} id='verify-otp'>
+                            {loading ? 'Verifying...' : 'Verify OTP'}
+                            {loading &&
+                                <div className="loading-overlay-btn" >
+                                    <ClipLoader color="#620c88" />
+                                </div>
+                            }
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

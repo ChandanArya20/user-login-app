@@ -9,8 +9,8 @@ const RegistrationSuccessPage=()=>{
     return (
         <div className="user-login-success-message">
             <h2><FaCircleCheck /></h2>
-            <p>SUCCESS</p>
-            <p>Congratulations, your account has been successfully created.</p>
+            <p id='success'>SUCCESS</p>
+            <p>Congratulations, Your account has been successfully created.</p>
             <button onClick={()=>navigate(-1)}>Continue</button>
 	    </div>
     )

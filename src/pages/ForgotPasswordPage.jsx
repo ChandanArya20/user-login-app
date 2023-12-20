@@ -14,7 +14,7 @@ const ForgotPasswordPage = () => {
 
     // Function to handle OTP
     const sendOTP = async (e) => {
-        e.preventDefault();
+       
         setLoading(true);
 
         try {
@@ -45,6 +45,10 @@ const ForgotPasswordPage = () => {
         }
     };
 
+    const handleBack=()=>{
+        navigate(-1);
+    }
+
     return (
         <div className="forgot-password-container">
             <div className="form-container">
@@ -52,8 +56,10 @@ const ForgotPasswordPage = () => {
                 <form>
                     {/* Input field for email */}
                     <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                </form>
+                <div className="button-container">         
+                    <BackOutlineButton name="Back" handlerFunction={handleBack}/>
                     
-                    {/* Button to trigger OTP sending, with loading spinner */}
                     <button onClick={(e) => sendOTP(e)} disabled={loading}>
                         {loading ? 'Sending OTP...' : 'Reset Password'}
                         {loading && 
@@ -62,12 +68,9 @@ const ForgotPasswordPage = () => {
                             </div>
                         }
                     </button>
-                </form>
-                
-                {/* Container for the "Back" button */}
-                <div className="button-container">
-                    <BackOutlineButton name="Back" handlerFunction={() => navigate(-1)} />
                 </div>
+                
+                
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 .user-login-page-container {
-	background: #f6f5f7;
+	background: #d0b4ed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -106,7 +106,7 @@
 }
 
 .user-login-page-container .container {
-	background-color: #fff;
+	background-color: #01ff49;
 	border-radius: 10px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
@@ -267,3 +267,13 @@
     text-decoration: none;
 }
 
+@media (max-width: 426px){
+    .user-login-page-container{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+    .user-login-success-message p {   
+        margin: 10px 0;
+    }
+}

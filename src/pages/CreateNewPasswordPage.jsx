@@ -78,8 +78,9 @@ const CreateNewPasswordPage = () => {
                     <input type="password" placeholder="Create new password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <input type="password" placeholder="Confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
 
+                    <div className="button-container">
                     {/* Button to submit new password, with loading spinner */}
-                    <button onClick={(e) => generateNewPassword(e)} disabled={loading}>
+                    <button onClick={(e) => generateNewPassword(e)} disabled={loading} id='submit'>
                         {loading ? 'Creating...' : 'Submit'}
                         {loading &&
                             <div className="loading-overlay-btn" >
@@ -87,7 +88,9 @@ const CreateNewPasswordPage = () => {
                             </div>
                         }
                     </button>
+                </div>
                 </form>
+                
             </div>
         </div>
     );

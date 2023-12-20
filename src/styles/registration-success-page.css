@@ -1,5 +1,5 @@
 
-.success-message {
+.user-login-success-message {
     background-color: white;
     border-radius: 10px;
     padding: 20px;
@@ -8,9 +8,9 @@
     align-items: center;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
     margin: 50px auto;
-    width: 50%;
+    width: 400px;
 }
-.success-message h2 {
+.user-login-success-message h2 {
     color: rgb(1, 169, 1);
     font-size: 54px;
     margin: 0;
@@ -23,13 +23,16 @@
     background-color: white;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
 }
-.success-message p {
+.user-login-success-message p {
     color: black;
     font-size: 18px;
     margin: 20px 0;
     text-align: center;
 }
-.success-message button {
+.user-login-success-message #success{
+    font-weight: bold;
+}
+.user-login-success-message button {
     background-color: rgb(0, 195, 0);
     color: white;
     border: none;
@@ -40,7 +43,24 @@
     transition: all 0.3s ease-in-out;
     margin-top: 20px;
 }
-.success-message button:hover {
+.user-login-success-message button:hover {
    background-color: rgb(1, 181, 1);
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px){
+    .user-login-success-message{
+        width: 70%;
+    }
+    .user-login-success-message p {   
+        margin: 10px 0;
+    }
+}
+@media (max-width: 426px){
+    .user-login-success-message{
+        width: 80vw;
+    }
+    .user-login-success-message p {   
+        margin: 10px 0;
+    }
 }
